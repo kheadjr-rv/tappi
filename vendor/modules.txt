@@ -1,0 +1,14 @@
+# github.com/gomarkdown/markdown v0.0.0-20201030010234-8ba61b39d0e4
+## explicit
+github.com/gomarkdown/markdown
+github.com/gomarkdown/markdown/ast
+github.com/gomarkdown/markdown/html
+github.com/gomarkdown/markdown/parser
+# github.com/google/uuid v1.1.2
+github.com/google/uuid
+# github.com/maxence-charriere/go-app/v7 v7.0.6
+## explicit
+github.com/maxence-charriere/go-app/v7/pkg/app
+github.com/maxence-charriere/go-app/v7/pkg/cli
+github.com/maxence-charriere/go-app/v7/pkg/errors
+github.com/maxence-charriere/go-app/v7/pkg/logs

@@ -1,0 +1,22 @@
+{
+  "short_name": "TAPPI",
+  "name": "TAPPI",
+  "icons": [
+    {
+      "src": "/web/images/maskable_icon_192px.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/web/images/maskable_icon_512px.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    }
+  ],
+  "scope": "/",
+  "start_url": "/",
+  "background_color": "#2e343a",
+  "theme_color": "#2e343a",
+  "display": "standalone"
+}
