@@ -16,7 +16,7 @@ import (
 )
 
 type localOptions struct {
-	Port int `cli:"p" env:"GOAPP_DOCS_PORT" help:"The port used by the server that serves the PWA."`
+	Port int `cli:"p" env:"GOAPP_TAPPI_PORT" help:"The port used by the server that serves the PWA."`
 }
 
 type githubOptions struct {
@@ -46,7 +46,7 @@ func main() {
 	h := app.Handler{
 		Author:          "Kevin Head",
 		BackgroundColor: backgroundColor,
-		Description:     "You know, for Terraforming Application Infrastructure",
+		Description:     "You know, Terraform Application Infrastructure Development",
 		Keywords: []string{
 			"tappi",
 			"terraform",
@@ -73,6 +73,9 @@ func main() {
 			"https://fonts.googleapis.com/css2?family=Roboto&display=swap",
 			"/web/css/prism.css",
 			"/web/css/docs.css",
+		},
+		CacheableResources: []string{
+			"/web/documents/*.md",
 		},
 		// RawHeaders: []string{
 		// 	`

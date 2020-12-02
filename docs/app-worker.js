@@ -15,6 +15,7 @@ self.addEventListener("install", event => {
         "/web/app.wasm",
         "/web/css/docs.css",
         "/web/css/prism.css",
+        "/web/documents/*.md",
         "/web/images/maskable_icon_192px.png",
         "/web/images/maskable_icon_512px.png",
         "/web/js/prism.js",
