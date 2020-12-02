@@ -1,7 +1,7 @@
-const cacheName = "app-" + "0.0.30";
+const cacheName = "app-" + "0.0.31";
 
 self.addEventListener("install", event => {
-  console.log("installing app worker 0.0.30");
+  console.log("installing app worker 0.0.31");
   self.skipWaiting();
 
   event.waitUntil(
@@ -42,7 +42,7 @@ self.addEventListener("activate", event => {
       );
     })
   );
-  console.log("app worker 0.0.30 is activated");
+  console.log("app worker 0.0.31 is activated");
 });
 
 self.addEventListener("fetch", event => {

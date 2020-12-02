@@ -16,7 +16,7 @@ func (s *editor) Render() app.UI {
 		// 	newTableOfContents().
 		// 		Links(p.links...),
 		// ).
-		// OverlayMenu(&overlayMenu{}).
+		OverlayMenu(&overlayMenu{}).
 		Content(
 			app.Main().
 				Class("pane").
