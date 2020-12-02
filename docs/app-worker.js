@@ -1,7 +1,7 @@
-const cacheName = "app-" + "0.0.15";
+const cacheName = "app-" + "98a31021c363df3697bc9ab5be152a19f9b47e62";
 
 self.addEventListener("install", event => {
-  console.log("installing app worker 0.0.15");
+  console.log("installing app worker 98a31021c363df3697bc9ab5be152a19f9b47e62");
   self.skipWaiting();
 
   event.waitUntil(
@@ -14,6 +14,7 @@ self.addEventListener("install", event => {
         "/wasm_exec.js",
         "/web/app.wasm",
         "/web/css/docs.css",
+        "/web/css/editor.css",
         "/web/css/prism.css",
         "/web/documents/architecture.md",
         "/web/documents/start.md",
@@ -21,6 +22,7 @@ self.addEventListener("install", event => {
         "/web/images/maskable_icon_192px.png",
         "/web/images/maskable_icon_512px.png",
         "/web/js/prism.js",
+        "/web/js/src-min-noconflict/ace.js",
         "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap",
         "https://fonts.googleapis.com/css2?family=Roboto&display=swap",
         
@@ -41,7 +43,7 @@ self.addEventListener("activate", event => {
       );
     })
   );
-  console.log("app worker 0.0.15 is activated");
+  console.log("app worker 98a31021c363df3697bc9ab5be152a19f9b47e62 is activated");
 });
 
 self.addEventListener("fetch", event => {

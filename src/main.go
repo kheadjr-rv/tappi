@@ -67,12 +67,14 @@ func main() {
 		},
 		Scripts: []string{
 			"/web/js/prism.js",
+			"/web/js/src-min-noconflict/ace.js",
 		},
 		Styles: []string{
 			"https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap",
 			"https://fonts.googleapis.com/css2?family=Roboto&display=swap",
 			"/web/css/prism.css",
 			"/web/css/docs.css",
+			"/web/css/editor.css",
 		},
 		CacheableResources: []string{
 			"/web/documents/start.md",

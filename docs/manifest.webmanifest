@@ -5,8 +5,7 @@
     {
       "src": "/web/images/maskable_icon_192px.png",
       "type": "image/png",
-      "sizes": "192x192",
-      "purpose": "any"
+      "sizes": "192x192"
     },
     {
       "src": "/web/images/maskable_icon_512px.png",

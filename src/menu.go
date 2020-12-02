@@ -48,23 +48,23 @@ func (m *menu) Render() app.UI {
 						newMenuItem().
 							Icon(`
 							<svg style="width:24px;height:24px" viewBox="0 0 24 24">
-    							<path fill="currentColor" d="M9,2V8H11V11H5C3.89,11 3,11.89 3,13V16H1V22H7V16H5V13H11V16H9V22H15V16H13V13H19V16H17V22H23V16H21V13C21,11.89 20.11,11 19,11H13V8H15V2H9Z" />
-							</svg>
-							`).
-							Text("Architecture").
-							Selected(m.currentPath == "/architecture").
-							Href("/architecture"),
-					),
-					app.Section().Body(
-						newMenuItem().
-							Icon(`
-							<svg style="width:24px;height:24px" viewBox="0 0 24 24">
 								<path fill="currentColor" d="M10,5V11H21V5M16,18H21V12H16M4,18H9V5H4M10,18H15V12H10V18Z" />
 							</svg>
 							`).
 							Text("Terraform").
 							Selected(m.currentPath == "/terraform").
 							Href("/terraform"),
+					),
+					app.Section().Body(
+						newMenuItem().
+							Icon(`
+							<svg style="width:24px;height:24px" viewBox="0 0 24 24">
+								<path fill="currentColor" d="M19,10H17V8H19M19,13H17V11H19M16,10H14V8H16M16,13H14V11H16M16,17H8V15H16M7,10H5V8H7M7,13H5V11H7M8,11H10V13H8M8,8H10V10H8M11,11H13V13H11M11,8H13V10H11M20,5H4C2.89,5 2,5.89 2,7V17A2,2 0 0,0 4,19H20A2,2 0 0,0 22,17V7C22,5.89 21.1,5 20,5Z" />
+							</svg>
+							`).
+							Text("Editor").
+							Selected(m.currentPath == "/editor").
+							Href("/editor"),
 					),
 					app.Section().Body(
 						newMenuItem().

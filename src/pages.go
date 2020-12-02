@@ -12,11 +12,10 @@ const (
 
 func pages() map[string]func() app.UI {
 	return map[string]func() app.UI{
-		"":             newStart,
-		"start":        newStart,
-		"architecture": newArchitecture,
-		"terraform":    newTerraform,
-		// "components":       newCompo,
+		"":          newStart,
+		"start":     newStart,
+		"terraform": newTerraform,
+		"editor":    newEditor,
 	}
 }
 
@@ -28,14 +27,6 @@ func newStart() app.UI {
 		)
 }
 
-func newArchitecture() app.UI {
-	return newPage().
-		Path("/web/documents/architecture.md").
-		TableOfContents(
-			"Architecture",
-		)
-}
-
 func newTerraform() app.UI {
 	return newPage().
 		Path("/web/documents/terraform.md").
@@ -43,6 +34,10 @@ func newTerraform() app.UI {
 			"Terraform",
 			"    Handling Local Name Conflicts",
 		)
+}
+
+func newEditor() app.UI {
+	return &editor{}
 }
 
 type page struct {

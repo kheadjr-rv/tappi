@@ -1,7 +1,7 @@
 package main
 
 var (
-	version = "0.0.15"
+	version = ""
 )
 
 // Version returns a semver version
