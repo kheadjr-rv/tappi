@@ -3,18 +3,18 @@
   "name": "TAPPI",
   "icons": [
     {
-      "src": "/tappi/web/images/maskable_icon_192px.png",
+      "src": "/web/images/maskable_icon_192px.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/tappi/web/images/maskable_icon_512px.png",
+      "src": "/web/images/maskable_icon_512px.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "scope": "/tappi/",
-  "start_url": "/tappi/",
+  "scope": "/",
+  "start_url": "/",
   "background_color": "#2e343a",
   "theme_color": "#2e343a",
   "display": "standalone"
