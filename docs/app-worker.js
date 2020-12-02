@@ -1,7 +1,7 @@
-const cacheName = "app-" + "0.0.14";
+const cacheName = "app-" + "0.0.15";
 
 self.addEventListener("install", event => {
-  console.log("installing app worker 0.0.14");
+  console.log("installing app worker 0.0.15");
   self.skipWaiting();
 
   event.waitUntil(
@@ -15,7 +15,9 @@ self.addEventListener("install", event => {
         "/web/app.wasm",
         "/web/css/docs.css",
         "/web/css/prism.css",
+        "/web/documents/architecture.md",
         "/web/documents/start.md",
+        "/web/documents/terraform.md",
         "/web/images/maskable_icon_192px.png",
         "/web/images/maskable_icon_512px.png",
         "/web/js/prism.js",
@@ -39,7 +41,7 @@ self.addEventListener("activate", event => {
       );
     })
   );
-  console.log("app worker 0.0.14 is activated");
+  console.log("app worker 0.0.15 is activated");
 });
 
 self.addEventListener("fetch", event => {

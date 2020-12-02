@@ -41,7 +41,7 @@ func newTerraform() app.UI {
 		Path("/web/documents/terraform.md").
 		TableOfContents(
 			"Terraform",
-			"  Handling Local Name Conflicts",
+			"    Handling Local Name Conflicts",
 		)
 }
 

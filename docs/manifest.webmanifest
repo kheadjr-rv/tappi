@@ -5,12 +5,14 @@
     {
       "src": "/web/images/maskable_icon_192px.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "any"
     },
     {
       "src": "/web/images/maskable_icon_512px.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any maskable"
     }
   ],
   "scope": "/",
