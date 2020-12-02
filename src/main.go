@@ -74,6 +74,7 @@ func main() {
 			"/web/css/prism.css",
 			"/web/css/docs.css",
 		},
+		Resources: app.GitHubPages("tappi"),
 		// RawHeaders: []string{
 		// 	`
 		// 	<!-- Global site tag (gtag.js) - Google Analytics -->
