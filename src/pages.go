@@ -25,13 +25,6 @@ func newStart() app.UI {
 		Path("/web/documents/start.md").
 		TableOfContents(
 			"Getting started",
-			// "Prerequisite",
-			// "Install",
-			// "User interface",
-			// "Server",
-			// "Build and run",
-			// "Tips",
-			// "Next",
 		)
 }
 
@@ -48,7 +41,7 @@ func newTerraform() app.UI {
 		Path("/web/documents/terraform.md").
 		TableOfContents(
 			"Terraform",
-			"Handling Local Name Conflicts",
+			"  Handling Local Name Conflicts",
 		)
 }
 

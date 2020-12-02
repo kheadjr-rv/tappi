@@ -77,22 +77,6 @@ func main() {
 		CacheableResources: []string{
 			"/web/documents/start.md",
 		},
-		// RawHeaders: []string{
-		// 	`
-		// 	<!-- Global site tag (gtag.js) - Google Analytics -->
-		// 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-SW4FQEM9VM"></script>
-		// 	<script>
-		// 	  window.dataLayer = window.dataLayer || [];
-		// 	  function gtag(){dataLayer.push(arguments);}
-		// 	  gtag('js', new Date());
-
-		// 	  gtag('config', 'G-SW4FQEM9VM');
-		// 	</script>`,
-		// 	`<meta property="og:url" content="https://go-app.dev">`,
-		// 	`<meta property="og:title" content="go-app">`,
-		// 	`<meta property="og:description" content="A package to build progressive web apps with Go programming language and WebAssembly.">`,
-		// 	`<meta property="og:image" content="https://go-app.dev/web/images/go-app.png">`,
-		// },
 		ThemeColor: backgroundColor,
 		Title:      "TAPPI",
 		Version:    Version(),
