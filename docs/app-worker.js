@@ -16,7 +16,6 @@ self.addEventListener("install", event => {
         "/web/css/docs.css",
         "/web/css/editor.css",
         "/web/css/prism.css",
-        "/web/documents/architecture.md",
         "/web/documents/start.md",
         "/web/documents/terraform.md",
         "/web/images/maskable_icon_192px.png",

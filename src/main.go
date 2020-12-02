@@ -78,7 +78,6 @@ func main() {
 		},
 		CacheableResources: []string{
 			"/web/documents/start.md",
-			"/web/documents/architecture.md",
 			"/web/documents/terraform.md",
 		},
 		ThemeColor: backgroundColor,
