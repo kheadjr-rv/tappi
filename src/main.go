@@ -75,7 +75,7 @@ func main() {
 			"/web/css/docs.css",
 		},
 		CacheableResources: []string{
-			"/web/documents/*.md",
+			"/web/documents/start.md",
 		},
 		// RawHeaders: []string{
 		// 	`
