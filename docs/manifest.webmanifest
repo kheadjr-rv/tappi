@@ -14,8 +14,8 @@
       "purpose": "maskable"
     }
   ],
-  "scope": "/",
-  "start_url": "/",
+  "scope": "/tappi/",
+  "start_url": "/tappi/",
   "background_color": "#2e343a",
   "theme_color": "#2e343a",
   "display": "standalone"
