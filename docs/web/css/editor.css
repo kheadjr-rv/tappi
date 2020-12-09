@@ -1,18 +1,28 @@
 .editor {
-    margin: 0 30px 0;
-    font-size: 14px;
+    display: block;
+    margin: 18px 30px 0;
+    padding: 18px 24px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
 }
 
 .terminal {
-    margin: 0 30px 0;
+    display: block;
+    margin: 18px 30px 0;
+    padding: 18px 24px;
     background-color: rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(0, 0, 0, 0.2);
-    color:whitesmoke;
+    border-radius: 12px;
+    color: white;
     font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    outline: none;
+    resize: none;
+    width: 80%;
 }
 
 button {
-    margin: 0 30px 0;
+    margin: 0 30px 30px;
     font-family: "Montserrat", sans-serif;
     font-size: 14px;
     /* letter-spacing: 6px; */

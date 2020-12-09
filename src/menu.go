@@ -77,6 +77,9 @@ func (m *menu) Render() app.UI {
 							Href(githubURL).
 							External(),
 					),
+					app.Section().Body(
+						app.P().Text("v"+Version()),
+					),
 				),
 		)
 }

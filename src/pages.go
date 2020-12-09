@@ -37,7 +37,14 @@ func newTerraform() app.UI {
 }
 
 func newEditor() app.UI {
-	return &editor{}
+	e := &editor{}
+	return e.TableOfActions(
+		"init",
+		"plan",
+		"apply",
+		"refresh",
+		"destroy",
+	)
 }
 
 type page struct {

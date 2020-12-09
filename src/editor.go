@@ -12,16 +12,22 @@ type editor struct {
 	app.Compo
 
 	response string
+	links    []string
+}
+
+func (e *editor) TableOfActions(v ...string) *editor {
+	e.links = v
+	return e
 }
 
 func (e *editor) Render() app.UI {
 	return app.Shell().
 		Class("app-background").
 		Menu(&menu{}).
-		// Submenu(
-		// 	newTableOfContents().
-		// 		Links(p.links...),
-		// ).
+		Submenu(
+			newTableOfActions().
+				Links(e.links...),
+		).
 		OverlayMenu(&overlayMenu{}).
 		Content(
 			app.Main().
@@ -55,12 +61,29 @@ func (e *editor) Render() app.UI {
 								OnClick(e.OnClick).
 								Text("Refresh").
 								Value("refresh"),
+							app.Button().
+								OnClick(e.OnClick).
+								Text("Destroy").
+								Value("destroy"),
+							app.Button().
+								OnClick(e.OnClick).
+								Text("Worspace List").
+								Value("ws-list/list"),
+							app.Button().
+								OnClick(e.OnClick).
+								Text("Worspace New").
+								Value("ws-new/foo"),
+							app.Button().
+								OnClick(e.OnClick).
+								Text("Worspace Select").
+								Value("ws-select/foo"),
 						).ItemsBaseWidth(50),
 					),
+					app.H1().Text("Console"),
 					app.Section().Body(
 						app.Textarea().
 							Class("terminal").
-							Cols(80).
+							ReadOnly(true).
 							Rows(20).
 							Text(e.response),
 					),

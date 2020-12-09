@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"flag"
+	"fmt"
 	"io"
 	"log"
 	"net/http"
@@ -27,6 +28,94 @@ func newExecutor(workingDir string, execPath string) (*executor, error) {
 	return &executor{
 		tf: tf,
 	}, nil
+}
+
+func workspaceHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	if r.Method == http.MethodOptions {
+		return
+	}
+
+	exec, err := newExecutor("./terraform", "/usr/local/bin/terraform")
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	vars := mux.Vars(r)
+
+	action, ok := vars["ws"]
+	if !ok {
+		http.Error(w, "invalid workspace action", http.StatusInternalServerError)
+		return
+	}
+
+	switch action {
+	case "ws-list":
+		names, name, err := exec.tf.WorkspaceList(r.Context())
+		if err != nil {
+			http.Error(w, "unable to list workspaces", http.StatusInternalServerError)
+			return
+		}
+
+		w.Header().Set("content-type", "application/json")
+		ws := struct {
+			Names []string `json:"names"`
+			Name  string   `json:"name"`
+		}{
+			Names: names,
+			Name:  name,
+		}
+
+		fmt.Fprint(w, ws)
+
+	case "ws-new":
+
+		name, ok := vars["name"]
+		if !ok {
+			http.Error(w, "missing workspace name", http.StatusInternalServerError)
+			return
+		}
+
+		err = exec.tf.WorkspaceNew(r.Context(), name)
+		if err != nil {
+			http.Error(w, fmt.Sprintf("unable to add workspace: %v", err), http.StatusInternalServerError)
+			return
+		}
+
+	case "ws-select":
+
+		name, ok := vars["name"]
+		if !ok {
+			http.Error(w, "missing workspace name to select", http.StatusInternalServerError)
+			return
+		}
+
+		err = exec.tf.WorkspaceSelect(r.Context(), name)
+		if err != nil {
+			http.Error(w, "unable to select workspace", http.StatusInternalServerError)
+			return
+		}
+
+		names, name, err := exec.tf.WorkspaceList(r.Context())
+		if err != nil {
+			http.Error(w, "unable to list workspaces after select", http.StatusInternalServerError)
+			return
+		}
+
+		w.Header().Set("content-type", "application/json")
+		ws := struct {
+			Names []string `json:"names"`
+			Name  string   `json:"name"`
+		}{
+			Names: names,
+			Name:  name,
+		}
+
+		fmt.Fprint(w, ws)
+
+	}
+
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
@@ -110,6 +199,14 @@ func handler(w http.ResponseWriter, r *http.Request) {
 			pw.Write([]byte(err.Error()))
 			return
 		}
+
+	case "destroy":
+		err = exec.tf.Destroy(r.Context())
+		if err != nil {
+			pw.Write([]byte(err.Error()))
+			return
+		}
+
 	}
 
 }
@@ -122,6 +219,7 @@ func main() {
 	r := mux.NewRouter()
 	// Add your routes as needed
 	r.HandleFunc("/{action}", handler).Methods(http.MethodGet, http.MethodOptions)
+	r.HandleFunc("/{ws}/{name}", workspaceHandler).Methods(http.MethodGet, http.MethodOptions)
 
 	r.Use(mux.CORSMethodMiddleware(r))
 
@@ -133,8 +231,6 @@ func main() {
 		IdleTimeout:  time.Second * 60,
 		Handler:      r, // Pass our instance of gorilla/mux in.
 	}
-
-	// TODO move this
 
 	// Run our server in a goroutine so that it doesn't block.
 	go func() {
