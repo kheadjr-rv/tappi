@@ -83,6 +83,8 @@ func workspaceHandler(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
+		fmt.Fprint(w, "foo workspace created")
+
 	case "ws-select":
 
 		name, ok := vars["name"]
